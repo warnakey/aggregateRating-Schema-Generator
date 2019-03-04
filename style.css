@@ -1,0 +1,158 @@
+/* Copyright ©, 2019, Eric Warncke. ericwarncke@gmail.com */
+
+.pagewrapper {
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	font-family: arial;
+}
+fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+form {
+	position: relative;
+}
+#outputcontainer {
+	border: 1px solid #444;
+	background: #ededed;
+	padding: 30px;
+	margin: 30px 0;
+}
+input.submitbutton {
+    font-weight: bold;
+    padding: 10px 45px;
+    font-size: 28px;
+    background: #be9c62;
+    color: #fff;
+    margin: 40px 0 60px;
+	cursor: pointer;
+}
+input[type="reset"] {
+    background: #777;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 45px;
+    font-size: 28px;
+    cursor: pointer;
+}
+#nextBlock {
+	width: 100%;
+	display: none;
+	margin-top: 35px;
+	position: relative;
+}
+#nextBlock p {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 35px;
+    float: left;
+    width: 100%;
+}
+#nextBlock textarea, #nextBlock .questionTwo input, #nextBlock .questionTwoA input, #nextBlock .questionFour input, #nextBlock .questionSix input, #nextBlock .questionSeven input, #nextBlock .questionEight input, #nextBlock .questionTen input, #nextBlock .questionEleven input, #nextBlock .questionTwelve input, #nextBlock .questionThirteen input, #nextBlock .questionFourteen input, #nextBlock .questionFifteen input, #nextBlock .questionSixteen input, #nextBlock .questionSeventeen input, #nextBlock .questionEighteen input, #nextBlock .questionNineteen input {
+	height: 100%;
+	width: 100%;
+	border: 1px solid gray;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+textarea {
+	resize: none;
+}
+input, textarea {
+    background: #f1f1f1;
+}
+input {
+    padding: 10px;
+	margin-bottom: 10px;
+}
+input[type="radio"] {
+    margin-bottom: 0;
+}
+label {
+    line-height: 25px;
+}
+.textareabox * {
+	vertical-align: middle;
+	width: 100%;
+}
+.textareabox {
+	margin-top: 15px;
+}
+#productcondition {
+	display: none;
+}
+a.addreviewschema {
+    background: royalblue;
+    color: #fff;
+    text-decoration: none;
+    line-height: 50px;
+    text-transform: uppercase;
+    float: left;
+    text-align: center;
+    width: 300px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: arial;
+    border-radius: 50px;
+}
+.addmorecontainer {
+    width: 100%;
+    float: left;
+}
+ul.individualreviews {
+    margin: 40px 0 40px;
+    list-style: none;
+    padding: 0;
+}
+
+user agent stylesheet
+div {
+    display: block;
+}
+user agent stylesheet
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+user agent stylesheet
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+ul.individualreviews li {
+    margin-bottom: 60px;
+}
+.questionOne p {
+    margin-top: 40px;
+    font-weight: bold;
+}
+.questionTwo {
+    margin-top: -15px;
+}
+a.deletereviewschema {
+    border: 3px solid red;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: red;
+	border-radius: 20px;
+}
+.footer-schema h4 {
+    font-size: 22px;
+    margin-bottom: 5px;
+    background: #497980;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+	border-radius: 35px;
+}
