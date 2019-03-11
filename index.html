@@ -14,249 +14,187 @@
 			<p>Complete the steps below to have valid schema generated for you!</p>
 			<hr>
 
-			<form name="schemageneratorform" action="" method="POST">
-				<div class="questionOne">
-					<p>Which option below best describes what you are creating aggregateRating schema for?</p>
-					<div class="radiobuttonchoice">
-						<input type="radio" id="localBusinesstype" name="schematype" value="localbusiness" onclick="nextQuestion()">
-						<label for="localBusinesstype">Local Business</label>
+			<div class="formwrapper">
+				<form name="schemageneratorform" action="" method="POST">
+					<div class="questionOne">
+						<p>Which option below best describes what you are creating aggregateRating schema for?</p>
+						<div class="radiobuttonchoice">
+							<input type="radio" id="localBusinesstype" name="schematype" value="localbusiness" onclick="nextQuestion()">
+							<label for="localBusinesstype">Local Business</label>
+						</div>
+						<div class="radiobuttonchoice">
+							<input type="radio" id="producttype" name="schematype" value="product" onclick="nextQuestion()">
+							<label for="producttype">Product</label>
+						</div>
+						<div class="radiobuttonchoice">
+							<input type="radio" id="servicetype" name="schematype" value="service" onclick="nextQuestion()">
+							<label for="servicetype">Service</label>
+						</div>
 					</div>
-					<div class="radiobuttonchoice">
-						<input type="radio" id="producttype" name="schematype" value="product" onclick="nextQuestion()">
-						<label for="producttype">Product</label>
-					</div>
-					<div class="radiobuttonchoice">
-						<input type="radio" id="servicetype" name="schematype" value="service" onclick="nextQuestion()">
-						<label for="servicetype">Service</label>
-					</div>
-				</div>
-				
-				<!-- BEGIN NEXT BLOCK OF QUESTIONS -->
-				<div id="nextBlock">
-					<div class="questionTwo">
-						<p>Enter the name of the <span id="schematypechoice"></span> below.</p>
-						<label for="schemaname">Name: </label>
-						<input type="text" id="schemaname" name="schemaname" onKeyPress="return noenter()">
-					</div>
+					
+					<!-- BEGIN NEXT BLOCK OF QUESTIONS -->
+					<div id="nextBlock">
+						<div class="questionTwo">
+							<p>Enter the name of the <span id="schematypechoice"></span> below.</p>
+							<label for="schemaname">Name: </label>
+							<input type="text" id="schemaname" name="schemaname" onKeyPress="return noenter()">
+						</div>
 
-					<!-- OPTIONAL QUESTION -->
-					<div class="questionTwoA">
-						<p>Enter any altername names for the <span id="schematypechoice2"></span> below (optional).</p>
-						<div class="alternatename">
-							<label for="altschemaname">Alt Name: </label>
-							<input type="text" id="altschemaname" name="altschemaname" onKeyPress="return noenter()">
-							<label for="altschemaname">Alt Name: </label>
-							<input type="text" id="altschemaname" name="altschemaname" onKeyPress="return noenter()">
-							<label for="altschemaname">Alt Name: </label>
-							<input type="text" id="altschemaname" name="altschemaname" onKeyPress="return noenter()">
-						</div>
-					</div>
-					<!-- END OPTIONAL QUESTION -->
-					
-					<div class="questionThree">
-						<div class="textareabox">
-							<p>Enter a description for the <span id="schematypechoice3"></span> below.</p>
-							<label for="schemadescription">Description: </label>
-							<textarea type="text" id="schemadescription" name="schemadescription" rows="5" onKeyPress="return noenter()"></textarea>
-						</div>
-					</div>
-					
-					<div class="questionFour">
-						<p>Enter an image URL for the <span id="schematypechoice4"></span> below (can be a logo).</p>
-						<label for="schemaimage">Image URL: </label>
-						<input type="text" id="schemaimage" name="schemaimage" value="https://www.example.com/example.jpg" onKeyPress="return noenter()">
-					</div>
-					
-					<!-- Only to be asked for Product schema questions -->
-					<div id="productcondition">
-						<p class="questionfive">What is the condition of the Product?</p>
-						<select id="schemacondition" name="schemacondition"> 
-							<option id="newcondition" value="new" onclick="nextQuestion()">New</option>
-							<option id="usedcondition" value="used" onclick="nextQuestion()">Used</option>
-							<option id="refurbishedcondition" value="refurbished" onclick="nextQuestion()">Refurbished</option>
-							<option id="damagedcondition" value="damaged" onclick="nextQuestion()">Damaged</option>
-						</select>
+						<!-- OPTIONAL QUESTION -->
 						
-						<!--<div class="radiobuttonchoice">
-							<input type="radio" id="newcondition" name="schemacondition" value="new" onclick="nextQuestion()">
-							<label for="newcondition">New</label>
-						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="usedcondition" name="schemacondition" value="used" onclick="nextQuestion()">
-							<label for="usedcondition">Used</label>
-						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="refurbishedcondition" name="schemacondition" value="refurbished" onclick="nextQuestion()">
-							<label for="refurbishedcondition">Refurbished</label>
-						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="damagedcondition" name="schemacondition" value="damaged" onclick="nextQuestion()">
-							<label for="damagedcondition">Damaged</label>
+						<!-- More complex version -->
+						<!--<p>Enter any altername names for the <span id="schematypechoice2"></span> by pressing the button below (optional).</p>
+						<ul class="altNames" id="altnamesul"></ul>
+						<div class="addmorealtnamescontainer" id="addAltNamesButtonContainer">
+							<a href="#" class="addaltNames" id="addAltNamesButton">+ Add New Alternate Name</a>
 						</div>-->
-					</div>
-
-					<div id="productavailability">
-						<p class="questionNine">What is the availability of the Product?</p>
-
-						<!-- options are 
-							Discontinued
-							InStock
-							InStoreOnly
-							LimitedAvailability
-							OnlineOnly
-							OutOfStock
-							PreOrder
-							PreSale
-							SoldOut
-						-->
-						<div class="radiobuttonchoice">
-							<input type="radio" id="instock" name="schemaavailability" value="instock" onclick="nextQuestion()">
-							<label for="instock">In Stock</label>
+						
+						<div class="questionTwenty">
+							<p>Enter up to two altername names for the <span id="schematypechoice2"></span> below.</p>
+							<label for="altnameone">Alt Name: </label>
+							<input type="text" id="altnameone" name="altnameone" onKeyPress="return noenter()">
+							
+							<label for="altnametwo">Alt Name: </label>
+							<input type="text" id="altnametwo" name="altnametwo" onKeyPress="return noenter()">
 						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="soldout" name="schemaavailability" value="soldout" onclick="nextQuestion()">
-							<label for="soldout">Sold Out</label>
+						
+						<!-- END OPTIONAL QUESTION -->
+						
+						<div class="questionThree">
+							<div class="textareabox">
+								<p>Enter a description for the <span id="schematypechoice3"></span> below.</p>
+								<label for="schemadescription">Description: </label>
+								<textarea type="text" id="schemadescription" name="schemadescription" rows="5" onKeyPress="return noenter()"></textarea>
+							</div>
 						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="discontinued" name="schemaavailability" value="discontinued" onclick="nextQuestion()">
-							<label for="discontinued">Discontinued</label>
+						
+						<div class="questionSix">
+							<p>Enter the website URL for the <span id="schematypechoice5"></span> below.</p>
+							<label for="schemaURL">Website URL: </label>
+							<input type="text" id="schemaURL" name="schemaurl" value="https://www.example.com/" onKeyPress="return noenter()">
 						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="instoreonly" name="schemaavailability" value="instoreonly" onclick="nextQuestion()">
-							<label for="instoreonly">In Store Only</label>
+						
+						<div class="questionFour">
+							<p>Enter an image URL for the <span id="schematypechoice4"></span> below (can be a logo).</p>
+							<label for="schemaimage">Image URL: </label>
+							<input type="text" id="schemaimage" name="schemaimage" value="https://www.example.com/example.jpg" onKeyPress="return noenter()">
 						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="limitedavailability" name="schemaavailability" value="limitedavailability" onclick="nextQuestion()">
-							<label for="limitedavailability">Limited Availability</label>
+						
+						<!-- Only to be asked for Product schema questions -->
+						<div id="productcondition">
+							<p class="questionfive">What is the condition of the Product?</p>
+							<select id="schemacondition" name="schemacondition"> 
+								<option id="newcondition" value="new" onclick="nextQuestion()">New</option>
+								<option id="usedcondition" value="used" onclick="nextQuestion()">Used</option>
+								<option id="refurbishedcondition" value="refurbished" onclick="nextQuestion()">Refurbished</option>
+								<option id="damagedcondition" value="damaged" onclick="nextQuestion()">Damaged</option>
+							</select>
 						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="onlineonly" name="schemaavailability" value="onlineonly" onclick="nextQuestion()">
-							<label for="onlineonly">Online Only</label>
+
+						<div id="productavailability">
+							<p class="questionNine">What is the availability of the Product?</p>
+							<select id="schemaavailability" name="schemaavailability"> 
+								<option id="instock" value="instock" onclick="nextQuestion()">In Stock</option>
+								<option id="soldout" value="soldout" onclick="nextQuestion()">Sold Out</option>
+								<option id="discontinued" value="discontinued" onclick="nextQuestion()">Discontinued</option>
+								<option id="instoreonly" value="instoreonly" onclick="nextQuestion()">In Store Only</option>
+								<option id="limitedavailability" value="limitedavailability" onclick="nextQuestion()">Limited Availability</option>
+								<option id="onlineonly" value="onlineonly" onclick="nextQuestion()">Online Only</option>
+								<option id="outofstock" value="outofstock" onclick="nextQuestion()">Out of Stock</option>
+								<option id="preorder" value="preorder" onclick="nextQuestion()">Pre Order</option>
+								<option id="presale" value="presale" onclick="nextQuestion()">Pre Sale</option>
+							</select>
 						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="outofstock" name="schemaavailability" value="outofstock" onclick="nextQuestion()">
-							<label for="outofstock">Out of Stock</label>
+
+						<div class="questionEight">
+							<p>Enter the product SKU (optional).</p>
+							<label for="schemasku">SKU: </label>
+							<input type="text" id="schemasku" name="schemasku" onKeyPress="return noenter()">
 						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="preorder" name="schemaavailability" value="preorder" onclick="nextQuestion()">
-							<label for="preorder">Pre Order</label>
+
+						<div class="questionTen">
+							<p>Enter the type of currency the product is sold in, such as USD or EUR (optional).</p>
+							<label for="schemacurrency">Currency: </label>
+							<input type="text" id="schemacurrency" name="schemacurrency" value="USD" onKeyPress="return noenter()">
 						</div>
-						<div class="radiobuttonchoice">
-							<input type="radio" id="presale" name="schemaavailability" value="presale" onclick="nextQuestion()">
-							<label for="presale">Pre Sale</label>
+						<!-- END Only to be asked for Product schema questions -->
+
+						<!-- ONLY TO BE ASKED FOR PRODUCTS OR SERVICES (not local business) -->
+						<div class="questionSeven">
+							<p id="brandversion7">Enter the brand that makes the Product below (optional).</p>
+							<p id="serviceversion7">Enter the brand that offers the Service below (optional).</p>
+							<label for="schemabrand">Brand: </label>
+							<input type="text" id="schemabrand" name="schemabrand" onKeyPress="return noenter()">
 						</div>
-					</div>
+						<!-- END ONLY TO BE ASKED FOR PRODUCTS OR SERVICES (not local business) -->
 
-					<div class="questionEight">
-						<p>Enter the product SKU (optional).</p>
-						<label for="schemasku">SKU: </label>
-						<input type="text" id="schemasku" name="schemasku" onKeyPress="return noenter()">
-					</div>
-
-					<div class="questionTen">
-						<p>Enter the type of currency the product is sold in, such as USD or EUR (optional).</p>
-						<label for="schemacurrency">Currency: </label>
-						<input type="text" id="schemacurrency" name="schemacurrency" value="USD" onKeyPress="return noenter()">
-					</div>
-					<!-- END Only to be asked for Product schema questions -->
-
-					<div class="questionSix">
-						<p>Enter the website URL for the <span id="schematypechoice5"></span> below.</p>
-						<label for="schemaURL">Website URL: </label>
-						<input type="text" id="schemaURL" name="schemaurl" value="https://www.example.com/" onKeyPress="return noenter()">
-					</div>
-
-					<!-- ONLY TO BE ASKED FOR PRODUCTS OR SERVICES (not local business) -->
-					<div class="questionSeven">
-						<p id="brandversion7">Enter the brand that makes the Product below (optional).</p>
-						<p id="serviceversion7">Enter the brand that offers the Service below (optional).</p>
-						<label for="schemabrand">Brand: </label>
-						<input type="text" id="schemabrand" name="schemabrand" onKeyPress="return noenter()">
-					</div>
-					<!-- END ONLY TO BE ASKED FOR PRODUCTS OR SERVICES (not local business) -->
-
-					<div class="questionEleven">
-						<p>Enter the price of the product, service or local business offering (optional).</p>
-						<label for="schemaprice">Price: </label>
-						<input type="text" id="schemaprice" name="schemaprice" value="19.99" onKeyPress="return noenter()">
-					</div>
-					
-					<!-- ONLY TO BE ASKED FOR LOCAL BUSINESS TYPES (not products or services) -->
-					<div class="questionTwelve">
-						<p>Enter the price range of the product, service or local business offering (optional).</p>
-						<label for="schemapricerange">Price Range: </label>
-						<input type="text" id="schemapricerange" name="schemapricerange" value="5.00 - 99.99" onKeyPress="return noenter()">
-					</div>
-					<!-- END ONLY TO BE ASKED FOR LOCAL BUSINESS TYPES (not products or services) -->
-
-					<div class="questionThirteen">
-						<p>How long will the price be valid until (optional)?</p>
-						<label for="schemapricevaliduntil">Price Valid Until: </label>
-						<input type="text" id="schemapricevaliduntil" name="schemapricevaliduntil" value="2022-12-31" onKeyPress="return noenter()">
-					</div>
-
-					<!-- OPTIONAL QUESTION -->
-					<div class="questionFourteen">
-						<p>Enter any additional properties for the <span id="schematypechoice2"></span> below (optional).</p>
-						<div class="additionalproperties">
-							<label for="additionalproperty">Additional Property: </label>
-							<input type="text" id="additionalproperty" name="additionalproperty" onKeyPress="return noenter()">
-							<label for="additionalproperty">Additional Property: </label>
-							<input type="text" id="additionalproperty" name="additionalproperty" onKeyPress="return noenter()">
-							<label for="additionalproperty">Additional Property: </label>
-							<input type="text" id="additionalproperty" name="additionalproperty" onKeyPress="return noenter()">
+						<div class="questionEleven">
+							<p>Enter the price of the product, service or local business offering (optional).</p>
+							<label for="schemaprice">Price: </label>
+							<input type="text" id="schemaprice" name="schemaprice" value="19.99" onKeyPress="return noenter()">
 						</div>
+						
+						<!-- ONLY TO BE ASKED FOR LOCAL BUSINESS TYPES (not products or services) -->
+						<div class="questionTwelve">
+							<p>Enter the price range of the product, service or local business offering (optional).</p>
+							<label for="schemapricerange">Price Range: </label>
+							<input type="text" id="schemapricerange" name="schemapricerange" value="5.00 - 99.99" onKeyPress="return noenter()">
+						</div>
+						<!-- END ONLY TO BE ASKED FOR LOCAL BUSINESS TYPES (not products or services) -->
+
+						<div class="questionThirteen">
+							<p>How long will the price be valid until (optional)?</p>
+							<label for="schemapricevaliduntil">Price Valid Until: </label>
+							<input type="text" id="schemapricevaliduntil" name="schemapricevaliduntil" value="2022-12-31" onKeyPress="return noenter()">
+						</div>
+
+						<!-- OPTIONAL QUESTION -->
+						<div class="questionFourteen">
+							<p>Enter any additional properties for the <span id="schematypechoice2"></span> below (optional).</p>
+							<div class="additionalproperties">
+								<label for="additionalproperty">Additional Property: </label>
+								<input type="text" id="additionalproperty" name="additionalproperty" onKeyPress="return noenter()">
+								<label for="additionalproperty">Additional Property: </label>
+								<input type="text" id="additionalproperty" name="additionalproperty" onKeyPress="return noenter()">
+								<label for="additionalproperty">Additional Property: </label>
+								<input type="text" id="additionalproperty" name="additionalproperty" onKeyPress="return noenter()">
+							</div>
+						</div>
+						<!-- END OPTIONAL QUESTION -->
+
+						<div class="questionFifteen">
+							<p>What is the best score in your rating system (usually 5, 10, or 100)?</p>
+							<label for="bestpossiblescore">Best Possible Score: </label>
+							<input type="text" id="bestpossiblescore" name="bestpossiblescore" value="100" onKeyPress="return noenter()">
+						</div>
+
+						<h2>Add Your Reviews below</h2>
+						
+						<ul class="individualreviews" id="addreviewsul"></ul>
+						<div class="addmorecontainer" id="addmorereviewscontainer">
+							<a href="#" class="addreviewschema" id="addReviewsButton">+ Add New Review</a>
+						</div>
+						
 					</div>
-					<!-- END OPTIONAL QUESTION -->
+					<!-- END NEXT BLOCK OF QUESTIONS -->
 
-					<div class="questionFifteen">
-						<p>What is the best score in your rating system (usually 5, 10, or 100)?</p>
-						<label for="bestpossiblescore">Best Possible Score: </label>
-						<input type="text" id="bestpossiblescore" name="bestpossiblescore" value="100" onKeyPress="return noenter()">
-					</div>
+				</form>
 
-					<h2>Add Your Reviews below</h2>
-					
-					<ul class="individualreviews"></ul>
-					<div class="addmorecontainer">
-						<a href="#" class="addreviewschema">+ Add New Review</a>
-					</div>
+				<!-- submit button -->
+				<input type="submit" onclick="return outputSchema()" value="SUBMIT" class="submitbutton" />
+				<!-- reset button -->
+				<input type="reset" value="RESET" name="reset" onclick="resetpage()">
 
+				<h3>Your JSON-LD Schema Output Will Go Here</h3>
 
+				<blockquote id="outputcontainer">
+					<div id="output"></div>
+				</blockquote>
 
-					<!--<div class="inputname">
-						<br><br>
-						<p>TEST TO ADD AND REMOVE</p>
-						<a href="#" class="add_project_file">
-							ADD
-						</a>
-					</div>
-
-					<ul class="project_images">
-						<li>X</li>
-					</ul>-->
-					
-					
+				<div id="emailoption">
+					<p id="emailoutput"></p>
 				</div>
-				<!-- END NEXT BLOCK OF QUESTIONS -->
-
-			</form>
-
-			<!-- submit button -->
-			<input type="submit" onclick="return outputSchema()" value="SUBMIT" class="submitbutton" />
-			<!-- reset button -->
-			<input type="reset" value="RESET" name="reset" onclick="resetpage()">
-
-			<h3>Your JSON-LD Schema Output Will Go Here</h3>
-
-			<blockquote id="outputcontainer">
-				<div id="output"></div>
-			</blockquote>
-
-			<div id="emailoption">
-				<p id="emailoutput"></p>
 			</div>
-			
 		</div>
 	</body>
 </html>
