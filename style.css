@@ -6,6 +6,14 @@
 	width: 100%;
 	font-family: arial;
 }
+.formwrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+form div {
+    float: left;
+    width: 100%;
+}
 fieldset {
 	border: none;
 	margin: 0;
@@ -40,30 +48,33 @@ input[type="reset"] {
 #nextBlock {
 	width: 100%;
 	display: none;
-	margin-top: 35px;
+	margin-top: 15px;
 	position: relative;
 }
 #nextBlock p {
     font-weight: bold;
     margin-bottom: 10px;
-    margin-top: 35px;
+    margin-top: 25px;
     float: left;
     width: 100%;
 }
-#nextBlock textarea, #nextBlock .questionTwo input, #nextBlock .questionTwoA input, #nextBlock .questionFour input, #nextBlock .questionSix input, #nextBlock .questionSeven input, #nextBlock .questionEight input, #nextBlock .questionTen input, #nextBlock .questionEleven input, #nextBlock .questionTwelve input, #nextBlock .questionThirteen input, #nextBlock .questionFourteen input, #nextBlock .questionFifteen input, #nextBlock .questionSixteen input, #nextBlock .questionSeventeen input, #nextBlock .questionEighteen input, #nextBlock .questionNineteen input {
+#nextBlock textarea, #nextBlock .questionTwo input, #nextBlock .altNames input, #nextBlock .questionTwoA input, #nextBlock .questionFour input, #nextBlock .questionSix input, #nextBlock .questionSeven input, #nextBlock .questionEight input, #nextBlock .questionTen input, #nextBlock .questionEleven input, #nextBlock .questionTwelve input, #nextBlock .questionThirteen input, #nextBlock .questionFourteen input, #nextBlock .questionFifteen input, #nextBlock .questionSixteen input, #nextBlock .questionSeventeen input, #nextBlock .questionEighteen input, #nextBlock .questionNineteen input {
 	height: 100%;
 	width: 100%;
-	border: 1px solid gray;
+	border: 1px solid #ccc;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+body {
+    background: #eef7fa;
+}
 textarea {
 	resize: none;
 }
 input, textarea {
-    background: #f1f1f1;
+    background: #fff;
 }
 input {
     padding: 10px;
@@ -82,20 +93,21 @@ label {
 .textareabox {
 	margin-top: 15px;
 }
-#productcondition {
+#productcondition, #altnamesul, #addreviewsul {
 	display: none;
 }
-a.addreviewschema {
-    background: royalblue;
+a.addreviewschema, a.addaltNames {
+    background: #497980;
+    letter-spacing: 0.7px;
     color: #fff;
     text-decoration: none;
     line-height: 50px;
     text-transform: uppercase;
     float: left;
     text-align: center;
-    width: 300px;
+    width: 320px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 17px;
     font-family: arial;
     border-radius: 50px;
 }
@@ -104,32 +116,22 @@ a.addreviewschema {
     float: left;
 }
 ul.individualreviews {
-    margin: 40px 0 40px;
+    margin: 0 0 10px 0;
     list-style: none;
     padding: 0;
+	float: left;
+    width: 100%;
 }
-
-user agent stylesheet
-div {
-    display: block;
-}
-user agent stylesheet
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-user agent stylesheet
-ul, menu, dir {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+ul.altNames {
+    margin: 20px 0 10px;
+    list-style: none;
+    padding: 0;
+    float: left;
+    width: 100%;
 }
 ul.individualreviews li {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+	float: left;
 }
 .questionOne p {
     margin-top: 40px;
@@ -138,21 +140,67 @@ ul.individualreviews li {
 .questionTwo {
     margin-top: -15px;
 }
+form h2, .deletewrapper {
+    width: 100%;
+    float: left;
+}
 a.deletereviewschema {
-    border: 3px solid red;
-    padding: 10px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     color: red;
-	border-radius: 20px;
+    margin: -35px 0 20px 30px;
+    float: left;
 }
-.footer-schema h4 {
+a.deletealtname {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: red;
+    font-weight: 600;
+    font-size: 14px;
+    margin: -5px 0 20px 0;
+    float: left;
+    border-radius: 20px;
+}
+#addAltNamesButtonContainer {
+    margin-top: 15px;
+}
+#addreviewsul h4 {
     font-size: 22px;
-    margin-bottom: 5px;
+    margin-bottom: 0;
     background: #497980;
     color: #fff;
-    padding: 15px;
+    padding: 15px 0;
     text-align: center;
-	border-radius: 35px;
+    margin-top: 0;
+	float: left;
+    width: 100%;
+}
+#addAltNamesButton {
+	display: block;
+}
+#addreviewsul li .footer-schema {
+    border: 2px solid #497980;
+    width: auto;
+    margin-top: 0;
+}
+.reviewsquestions {
+    padding: 20px 30px 45px 30px;
+    float: left;
+    width: auto;
+}
+ul.altNames li label {
+    width: 100%;
+    float: left;
+}
+@media (max-width: 450px) {
+	input.submitbutton, input[type="reset"] {
+		width: 50%;
+		margin: 30px 0 40px 0;
+	    padding: 20px 0;
+		float: left;
+	}
+	a.addreviewschema, a.addaltNames {
+		width: 100%;
+	}
 }
