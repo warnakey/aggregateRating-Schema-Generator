@@ -376,12 +376,12 @@ function outputSchema() {
 		// whatever the user enters an image URL into the input field will become the variable called schemaImage
 		let schemaImage = document.getElementById("schemaimage").value;
 		
+		// whatever the user enters as alt name #1 will become the variable called altNameOne
+		let altNameOne = document.getElementById("altnameone").value;
 		
+		// whatever the user enters as alt name #2 will become the variable called altNameTwo
+		let altNameTwo = document.getElementById("altnametwo").value;
 		
-		
-		///// **ONLY APPLIES TO PRODUCT SCHEMA, spit out the condition of the product
-		// This creates an array of the 4 product condition types
-		//let schemaconditions = document.getElementsByName("schemacondition");
 		
 		// insert schema code for the condition based on what condition the user selects
 		//if (schemaconditions[0].checked == true) {
@@ -392,6 +392,20 @@ function outputSchema() {
 			
 			// split the product schema into tons of parts
 			let productName = '<br> &emsp;"name": "' + schemaName + lineEndComma;
+			
+			/* This is not working */
+			if (altNameOne != "" && altNameOne != "") {
+				alert("alt name 1 is not blank and alt 2 is not blank");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameOne + lineEndComma + '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameTwo + lineEnd + '&emsp;],';
+			} else if (altNameOne == "" && altNameOne != "") {
+				alert("alt name 1 is blank, but alt name 2 is not");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameTwo + lineEnd + '&emsp;],';
+			} else if (altNameOne != "" && altNameOne == "") {
+				alert("alt name 1 is not blank, but alt name 2 is");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameOne + lineEnd + '&emsp;],';
+			}
+			
+			
 			let productDesc = '<br> &emsp;"description": "' + schemaDescription + lineEndComma;
 			let productImage = '<br> &emsp;"image": "' + schemaImage + lineEndComma;
 			let productItemCond = '<br> &emsp;"itemCondition": "' + schemaCondition2 + lineEndComma;
@@ -424,7 +438,7 @@ function outputSchema() {
 
 			let reviewsEnd = '<br> &emsp;]<br>}<br>';
 
-			let productSchemaOutput = productBegin + productName + productDesc + productImage + productItemCond + productManufacturer + additionalProp + aggregateRatingBegin + aggregateRatingValue + aggregateRatingCount + aggregateRatingBestRating + reviewsBegin + reviewOneAuthor + reviewOneDatePublished + reviewOneDescription + reviewOneRatingBegin + reviewsBestRating + reviewOneRatingValue + isThereAnotherReview + lastReviewAuthor + lastReviewDatePublished + lastReviewDescription + lastReviewRatingBegin + reviewsBestRating + lastReviewRatingValue + reviewsEnd + schemaEnd;
+			let productSchemaOutput = productBegin + productName /* not working + productAltNames */ + productDesc + productImage + productItemCond + productManufacturer + additionalProp + aggregateRatingBegin + aggregateRatingValue + aggregateRatingCount + aggregateRatingBestRating + reviewsBegin + reviewOneAuthor + reviewOneDatePublished + reviewOneDescription + reviewOneRatingBegin + reviewsBestRating + reviewOneRatingValue + isThereAnotherReview + lastReviewAuthor + lastReviewDatePublished + lastReviewDescription + lastReviewRatingBegin + reviewsBestRating + lastReviewRatingValue + reviewsEnd + schemaEnd;
 
 			// inside the output box, make it say the schemaType
 			document.getElementById('output').innerHTML = productSchemaOutput;
@@ -436,6 +450,18 @@ function outputSchema() {
 			
 			// split the product schema into tons of parts
 			let productName = '<br> &emsp;"name": "' + schemaName + '",';
+			
+			if (altNameOne != "" && altNameOne != "") {
+				alert("alt name 1 is not blank and alt 2 is not blank");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameOne + lineEndComma + '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameTwo + lineEnd + '&emsp;],';
+			} else if (altNameOne == "" && altNameOne != "") {
+				alert("alt name 1 is blank, but alt name 2 is not");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameTwo + lineEnd + '&emsp;],';
+			} else if (altNameOne != "" && altNameOne == "") {
+				alert("alt name 1 is not blank, but alt name 2 is");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameOne + lineEnd + '&emsp;],';
+			}
+			
 			let productDesc = '<br> &emsp;"description": "' + schemaDescription + '",';
 			let productImage = '<br> &emsp;"image": "' + schemaImage + '",';
 			let productItemCond = '<br> &emsp;"itemCondition": "' + schemaCondition2 + '",';
@@ -470,7 +496,7 @@ function outputSchema() {
 
 			let reviewsEnd = '<br> &emsp;]<br>}<br>';
 
-			let productSchemaOutput = productBegin + productName + productDesc + productImage + productItemCond + productManufacturer + additionalProp + aggregateRatingBegin + aggregateRatingValue + aggregateRatingCount + aggregateRatingBestRating + reviewsBegin + reviewOneAuthor + reviewOneDatePublished + reviewOneDescription + reviewOneRatingBegin + reviewsBestRating + reviewOneRatingValue + isThereAnotherReview + lastReviewAuthor + lastReviewDatePublished + lastReviewDescription + lastReviewRatingBegin + reviewsBestRating + lastReviewRatingValue + reviewsEnd + schemaEnd;
+			let productSchemaOutput = productBegin + productName /* not working + productAltNames */ + productDesc + productImage + productItemCond + productManufacturer + additionalProp + aggregateRatingBegin + aggregateRatingValue + aggregateRatingCount + aggregateRatingBestRating + reviewsBegin + reviewOneAuthor + reviewOneDatePublished + reviewOneDescription + reviewOneRatingBegin + reviewsBestRating + reviewOneRatingValue + isThereAnotherReview + lastReviewAuthor + lastReviewDatePublished + lastReviewDescription + lastReviewRatingBegin + reviewsBestRating + lastReviewRatingValue + reviewsEnd + schemaEnd;
 
 			// inside the output box, make it say the schemaType
 			document.getElementById('output').innerHTML = productSchemaOutput;
@@ -482,6 +508,18 @@ function outputSchema() {
 			
 			// split the product schema into tons of parts
 			let productName = '<br> &emsp;"name": "' + schemaName + '",';
+			
+			if (altNameOne != "" && altNameOne != "") {
+				alert("alt name 1 is not blank and alt 2 is not blank");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameOne + lineEndComma + '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameTwo + lineEnd + '&emsp;],';
+			} else if (altNameOne == "" && altNameOne != "") {
+				alert("alt name 1 is blank, but alt name 2 is not");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameTwo + lineEnd + '&emsp;],';
+			} else if (altNameOne != "" && altNameOne == "") {
+				alert("alt name 1 is not blank, but alt name 2 is");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameOne + lineEnd + '&emsp;],';
+			}
+			
 			let productDesc = '<br> &emsp;"description": "' + schemaDescription + '",';
 			let productImage = '<br> &emsp;"image": "' + schemaImage + '",';
 			let productItemCond = '<br> &emsp;"itemCondition": "' + schemaCondition2 + '",';
@@ -516,7 +554,7 @@ function outputSchema() {
 
 			let reviewsEnd = '<br> &emsp;]<br>}<br>';
 
-			let productSchemaOutput = productBegin + productName + productDesc + productImage + productItemCond + productManufacturer + additionalProp + aggregateRatingBegin + aggregateRatingValue + aggregateRatingCount + aggregateRatingBestRating + reviewsBegin + reviewOneAuthor + reviewOneDatePublished + reviewOneDescription + reviewOneRatingBegin + reviewsBestRating + reviewOneRatingValue + isThereAnotherReview + lastReviewAuthor + lastReviewDatePublished + lastReviewDescription + lastReviewRatingBegin + reviewsBestRating + lastReviewRatingValue + reviewsEnd + schemaEnd;
+			let productSchemaOutput = productBegin /* not working + productAltNames */ + productName + productDesc + productImage + productItemCond + productManufacturer + additionalProp + aggregateRatingBegin + aggregateRatingValue + aggregateRatingCount + aggregateRatingBestRating + reviewsBegin + reviewOneAuthor + reviewOneDatePublished + reviewOneDescription + reviewOneRatingBegin + reviewsBestRating + reviewOneRatingValue + isThereAnotherReview + lastReviewAuthor + lastReviewDatePublished + lastReviewDescription + lastReviewRatingBegin + reviewsBestRating + lastReviewRatingValue + reviewsEnd + schemaEnd;
 
 			// inside the output box, make it say the schemaType
 			document.getElementById('output').innerHTML = productSchemaOutput;
@@ -528,6 +566,18 @@ function outputSchema() {
 			
 			// split the product schema into tons of parts
 			let productName = '<br> &emsp;"name": "' + schemaName + '",';
+			
+			if (altNameOne != "" && altNameOne != "") {
+				alert("alt name 1 is not blank and alt 2 is not blank");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameOne + lineEndComma + '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameTwo + lineEnd + '&emsp;],';
+			} else if (altNameOne == "" && altNameOne != "") {
+				alert("alt name 1 is blank, but alt name 2 is not");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameTwo + lineEnd + '&emsp;],';
+			} else if (altNameOne != "" && altNameOne == "") {
+				alert("alt name 1 is not blank, but alt name 2 is");
+				let productAltNames = '<br> &emsp;"alternateName": [<br>&emsp;&emsp;"' + altNameOne + lineEnd + '&emsp;],';
+			}
+			
 			let productDesc = '<br> &emsp;"description": "' + schemaDescription + '",';
 			let productImage = '<br> &emsp;"image": "' + schemaImage + '",';
 			let productItemCond = '<br> &emsp;"itemCondition": "' + schemaCondition2 + '",';
@@ -562,7 +612,7 @@ function outputSchema() {
 
 			let reviewsEnd = '<br> &emsp;]<br>}<br>';
 
-			let productSchemaOutput = productBegin + productName + productDesc + productImage + productItemCond + productManufacturer + additionalProp + aggregateRatingBegin + aggregateRatingValue + aggregateRatingCount + aggregateRatingBestRating + reviewsBegin + reviewOneAuthor + reviewOneDatePublished + reviewOneDescription + reviewOneRatingBegin + reviewsBestRating + reviewOneRatingValue + isThereAnotherReview + lastReviewAuthor + lastReviewDatePublished + lastReviewDescription + lastReviewRatingBegin + reviewsBestRating + lastReviewRatingValue + reviewsEnd + schemaEnd;
+			let productSchemaOutput = productBegin + productName /* not working + productAltNames */ + productDesc + productImage + productItemCond + productManufacturer + additionalProp + aggregateRatingBegin + aggregateRatingValue + aggregateRatingCount + aggregateRatingBestRating + reviewsBegin + reviewOneAuthor + reviewOneDatePublished + reviewOneDescription + reviewOneRatingBegin + reviewsBestRating + reviewOneRatingValue + isThereAnotherReview + lastReviewAuthor + lastReviewDatePublished + lastReviewDescription + lastReviewRatingBegin + reviewsBestRating + lastReviewRatingValue + reviewsEnd + schemaEnd;
 
 			// inside the output box, make it say the schemaType
 			document.getElementById('output').innerHTML = productSchemaOutput;
